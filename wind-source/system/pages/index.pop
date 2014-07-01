@@ -1,0 +1,216 @@
+<body id="landing" class="process-template">
+
+<div id="overlay"></div>
+
+<div id="container">
+	<div class="cbb process-template-box clearfix">
+		<div id="content">
+
+			<div id="header" class="clearfix">
+				<h1><a href="http://habworld.net/"></a></h1>
+				<ul class="stats">
+					    <li class="stats-online"><span class="stats-fig">0</span> HabWorlds online now</li>
+					    <li class="stats-visited"><img src="http://habworld.net/web-gallery/v2/images/online.gif" alt="online" border="0"></li>
+				</ul>
+
+			</div>
+			<div id="process-content">
+
+	        	<div id="column1" class="column">
+				<div class="habblet-container " id="create-habbo">
+
+						<div id="create-habbo-flash">
+	<div id="create-habbo-nonflash" style="background-image: url(http://habworld.net/web-gallery/v2/images/landing/landing_group.png)">
+        <div id="landing-register-text"><a href="http://habworld.net/register"><span>Join now, it's free &raquo;</span></a></div>
+        <div id="landing-promotional-text"><span>HabWorld is a virtual world where you can meet and make friends.</span></div>
+    </div>
+	<div class="cbb clearfix green" id="habbo-intro-nonflash">
+		<h2 class="title">To get most out of HabWorld, do this:</h2>
+		<div class="box-content">
+			<ul>
+				<li id="habbo-intro-install" style="display:none"><a href="http://www.adobe.com/go/getflashplayer">Install Flash Player 8 or higher</a></li>
+				<noscript><li>Enable JavaScript</li></noscript>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" language="JavaScript">
+var swfobj = new SWFObject("http://habworld.net/flash/intro/habbos_v2.swf", "ch", "396", "378", "8");
+swfobj.addParam("AllowScriptAccess", "always");
+swfobj.addParam("wmode", "transparent");
+swfobj.addVariable("base_url", "http://habworld.net/flash/intro");
+swfobj.addVariable("habbos_url", "http://habworld.net/xml/promo_habbos_v2.xml");
+swfobj.addVariable("create_button_text", "Join now, it's free &raquo;");
+swfobj.addVariable("in_hotel_text", "Online now!");
+swfobj.addVariable("slogan", "HabWorld is a virtual world where you can meet and make friends.");
+swfobj.addVariable("video_start", "PLAY VIDEO");
+swfobj.addVariable("video_stop", "STOP VIDEO");
+swfobj.addVariable("button_link", "http://habworld.net/register");
+swfobj.addVariable("localization_url", "http://habworld.net/xml/landing_intro.xml");
+swfobj.addVariable("video_link", "http://habworld.net/flash/intro/Habbo_intro.swf");
+swfobj.addVariable("select_button_text", "Join now, it's free &raquo;");
+swfobj.addVariable("header_text", "Create your HabWorld...");
+swfobj.write("create-habbo-flash");
+HabboView.add(function() {
+	if (deconcept.SWFObjectUtil.getPlayerVersion()["major"] >= 8) {
+		try { $("habbo-intro-nonflash").hide(); } catch (e) {}
+	} else {
+		$("habbo-intro-install").show();
+	}
+});
+</script>
+
+
+
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+</div>
+<div id="column2" class="column">
+				<div class="habblet-container ">
+
+						<div class="cbb loginbox clearfix">
+    <h2 class="title">Sign in</h2>
+
+    <div class="box-content clearfix" id="login-habblet">
+        <form action="http://habworld.net/account/submit" method="post" class="login-habblet">
+			            <ul>
+                <li>
+                    <label for="login-username" class="login-text">Username</label>
+                    <input tabindex="1" type="text" class="login-field" name="username" id="login-username" value=""/>
+                </li>
+                <li>
+                    <label for="login-password" class="login-text">Password</label>
+                    <input tabindex="2" type="password" class="login-field" name="password" id="login-password" />
+	                <input type="submit" value="Sign in" class="submit" id="login-submit-button"/>
+	                <a href="#" id="login-submit-new-button" class="new-button" style="float: left; margin-left: 0;display:none"><b style="padding-left: 10px; padding-right: 7px; width: 55px">Sign in</b><i></i></a>
+                </li>
+                <li class="no-label">
+                    <input tabindex="3" type="checkbox" value="true" name="_login_remember_me" id="login-remember-me" checked="unchecked"/>
+                    <label for="login-remember-me">Remember me</label>
+                </li>
+                <li class="no-label">
+                    <a href="http://habworld.net/register" class="login-register-link"><span>Register for free</span></a>
+                </li>
+                <li class="no-label">
+                    <a href="http://habworld.net/account/password/forgot" id="forgot-password"><span>I forgot my username/password</span></a>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+</div>
+<div id="remember-me-notification" class="bottom-bubble" style="display:none;">
+	<div class="bottom-bubble-t"><div></div></div>
+	<div class="bottom-bubble-c">
+	By selecting 'remember me' you will stay signed in on this computer until you click 'Sign Out'. If this is a public computer please do not use this feature.	</div>
+	<div class="bottom-bubble-b"><div></div></div>
+</div>
+<script type="text/javascript">
+	HabboView.add(LoginFormUI.init);
+	HabboView.add(RememberMeUI.init);
+</script>
+
+
+
+								</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+				<div class="habblet-container ">
+
+						<div class="ad-container">
+<div id="geoip-ad" style="display:none"></div>
+</div>
+
+
+
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+				<div class="habblet-container ">
+
+
+
+
+
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+				<div class="habblet-container ">
+
+						<div class="ad-container">
+<a href="register.php"><img src="http://habworld.net/web-gallery/v2/images/landing/uk_party_frontpage_image.gif" alt="" /></a>
+</div>
+	
+						
+					
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+			 
+
+</div>
+<div id="column3" class="column">
+</div>
+<div id="column-footer">
+		
+				<div class="habblet-container ">		
+	
+						<div class="habblet box-content" id="tag-cloud-slim">
+    <span class="tags-habbos-like">HabWorlds Like..</span>
+	    <ul class="tag-list"><li><a href="http://habworld.net/tag/2001" class="tag" style="font-size:120%">2001</a> </li>
+<li><a href="http://habworld.net/tag/azealia banks" class="tag" style="font-size:120%">azealia banks</a> </li>
+<li><a href="http://habworld.net/tag/baas" class="tag" style="font-size:120%">baas</a> </li>
+<li><a href="http://habworld.net/tag/chocolate" class="tag" style="font-size:120%">chocolate</a> </li>
+<li><a href="http://habworld.net/tag/dj" class="tag" style="font-size:120%">dj</a> </li>
+<li><a href="http://habworld.net/tag/funny" class="tag" style="font-size:120%">funny</a> </li>
+<li><a href="http://habworld.net/tag/habbo 2001 users" class="tag" style="font-size:120%">habbo 2001 users</a> </li>
+<li><a href="http://habworld.net/tag/habworld" class="tag" style="font-size:200%">habworld</a> </li>
+<li><a href="http://habworld.net/tag/habworld 2001" class="tag" style="font-size:120%">habworld 2001</a> </li>
+<li><a href="http://habworld.net/tag/habworld user" class="tag" style="font-size:120%">habworld user</a> </li>
+<li><a href="http://habworld.net/tag/happy" class="tag" style="font-size:120%">happy</a> </li>
+<li><a href="http://habworld.net/tag/heel" class="tag" style="font-size:120%">heel</a> </li>
+<li><a href="http://habworld.net/tag/is" class="tag" style="font-size:120%">is</a> </li>
+<li><a href="http://habworld.net/tag/medal" class="tag" style="font-size:120%">medal</a> </li>
+<li><a href="http://habworld.net/tag/music" class="tag" style="font-size:120%">music</a> </li>
+<li><a href="http://habworld.net/tag/pink" class="tag" style="font-size:120%">pink</a> </li>
+<li><a href="http://habworld.net/tag/staff" class="tag" style="font-size:180%">staff</a> </li>
+<li><a href="http://habworld.net/tag/summer" class="tag" style="font-size:120%">summer</a> </li>
+<li><a href="http://habworld.net/tag/the pretty reckless" class="tag" style="font-size:120%">the pretty reckless</a> </li>
+<li><a href="http://habworld.net/tag/the room" class="tag" style="font-size:120%">the room</a> </li>
+<li><a href="http://habworld.net/tag/" class="tag" style="font-size:100%"></a> </li>
+</ul></div>
+	
+						
+					
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+			 
+ 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+Pngfix.doPngImageFix();
+</script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+<script type="text/javascript">
+Pngfix.doPngImageFix();
+</script>
+<![endif]-->
+
+<div id="footer">
+	<p><a href="http://habworld.net/" target="_self">Homepage</a> | <a href="http://habworld.net/papers/disclaimer" target="_self">Disclaimer</a> | <a href="http://habworld.net/papers/privacy" target="_self">Privacy Policy</a> | <a href="http://habworld.net/help/1" target="_new">Contact Us</a></p>
+		<p>Powered by <a href="http://www.phpretro.com/">PHPRetro</a><br />HABBO is a registered trademark of Sulake Corporation. All rights reserved to their respective owner(s).</p>
+	</div>			</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+HabboView.run();
+</script>
+
+
+</body>
+</html>
