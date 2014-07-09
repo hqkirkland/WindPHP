@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>%hotel_name%: Home </title>
+
+	<script type="text/javascript">
+	var andSoItBegins = (new Date()).getTime();
+	</script>
+    <link rel="shortcut icon" href="%site_url%/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" type="application/rss+xml" title="%short_name%: RSS" href="%site_url%/articles/rss.xml" />
+
+	<script src="%site_url%/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+	<script src="%site_url%/web-gallery/static/js/landing.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/style.css" type="text/css" />
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/buttons.css" type="text/css" />
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/boxes.css" type="text/css" />
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/tooltips.css" type="text/css" />
+	<link rel="stylesheet" href="%site_url%/web-gallery/styles/local/com.css" type="text/css" />
+
+	<script src="%site_url%/web-gallery/js/local/com.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/process.css" type="text/css" />
+
+	<script type="text/javascript">
+	document.habboLoggedIn = false;
+	var habboName = null;
+	var ad_keywords = "";
+	var habboReqPath = "%site_url%";
+	var habboStaticFilePath = "%site_url%/web-gallery";
+	var habboImagerUrl = "%site_url%/habbo-imaging/";
+	var habboPartner = "";
+	var habboDefaultClientPopupUrl = "%site_url%/client";
+	window.name = "habboMain";
+	if (typeof HabboClient != "undefined") { HabboClient.windowName = "client"; }
+
+	</script>
+
+
+	<meta name="description" content="Join the world's largest virtual hangout where you can meet and make friends. Design your own rooms, collect cool furniture, throw parties and so much more! Create your FREE %short_name% today!" />
+	<meta name="keywords" content="%short_name%, virtual, world, join, groups, forums, play, games, online, friends, teens, collecting, social network, create, collect, connect, furniture, virtual, goods, sharing, badges, social, networking, hangout, safe, music, celebrity, celebrity visits, cele" />
+
+	<!--[if IE 8]>
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/ie8.css" type="text/css" />
+	<![endif]-->
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/ie.css" type="text/css" />
+	<![endif]-->
+	<!--[if lt IE 7]>
+	<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/ie6.css" type="text/css" />
+	<script src="%site_url%/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
+	</script>
+
+	<style type="text/css">
+	body { behavior: url(%site_url%/web-gallery/js/csshover.htc); }
+	</style>
+	<![endif]-->
+	<meta name="build" content="WindPHP: Whistler" />
+	</head>
+	<body id="landing" class="process-template">
+
+	<div id="overlay"></div>
+
+	<div id="container">
+		<div class="cbb process-template-box clearfix">
+			<div id="content">
+				<div id="header" class="clearfix">
+					<h1><a href="%site_url%/"></a></h1>
+					<ul class="stats">
+							<li class="stats-online"><span class="stats-fig">%users_online%</span> %short_name%s online now</li>
+							<li class="stats-visited"><img src="%site_url%/web-gallery/v2/images/online.gif" alt="online" border="0"></li>
+					</ul>
+
+				</div>
+				<div id="process-content">
+					<div id="column1" class="column">
+						<div class="habblet-container " id="create-habbo">
+							<div id="create-habbo-flash">
+								<div id="create-habbo-nonflash" style="background-image: url(%site_url%/web-gallery/v2/images/landing/landing_group.png)">
+									<br />
+									
+									<div id="landing-register-text">
+									<br />
+									<br />
+										<a href="%site_url%/register">
+											<span>Join now, it's free &raquo;</span>
+										</a>
+									</div>
+									<div id="landing-promotional-text">
+										<span></span>
+									</div>
+								</div>
+							</div>
+
+	
+
+
+
+						</div>
+						<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+					</div>
+					<div id="column2" class="column">
+						<div class="habblet-container ">
+
+							<div class="cbb loginbox clearfix">
+								<h2 class="title">Check In</h2>
+
+    <div class="box-content clearfix" id="login-habblet">
+        <form action="%site_url%/account/submit" method="post" class="login-habblet">
+			            <ul>
+                <li>
+                    <label for="login-username" class="login-text">Username</label>
+                    <input tabindex="1" type="text" class="login-field" name="username" id="login-username" value=""/>
+                </li>
+                <li>
+                    <label for="login-password" class="login-text">Password</label>
+                    <input tabindex="2" type="password" class="login-field" name="password" id="login-password" />
+	                <input type="submit" value="Sign in" class="submit" id="login-submit-button"/>
+	                <a href="#" id="login-submit-new-button" class="new-button" style="float: left; margin-left: 0;display:none"><b style="padding-left: 10px; padding-right: 7px; width: 55px">Sign in</b><i></i></a>
+                </li>
+                <li class="no-label">
+                    <input tabindex="3" type="checkbox" value="true" name="_login_remember_me" id="login-remember-me" checked="unchecked"/>
+                    <label for="login-remember-me">Remember me</label>
+                </li>
+                <li class="no-label">
+                    <a href="%site_url%/register" class="login-register-link"><span>Register for free</span></a>
+                </li>
+                <li class="no-label">
+                    <a href="%site_url%/account/password/forgot" id="forgot-password"><span>I forgot my username/password</span></a>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+</div>
+<div id="remember-me-notification" class="bottom-bubble" style="display:none;">
+	<div class="bottom-bubble-t"><div></div></div>
+	<div class="bottom-bubble-c">
+	By selecting 'remember me' you will stay signed in on this computer until you click 'Sign Out'. If this is a public computer please do not use this feature.	</div>
+	<div class="bottom-bubble-b"><div></div></div>
+</div>
+<script type="text/javascript">
+	HabboView.add(LoginFormUI.init);
+	HabboView.add(RememberMeUI.init);
+</script>
+
+
+
+								</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+				<div class="habblet-container ">
+
+						<div class="ad-container">
+<div id="geoip-ad" style="display:none"></div>
+</div>
+
+
+
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+				<div class="habblet-container ">
+
+
+
+
+
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+				<div class="habblet-container ">
+
+						<div class="ad-container">
+<a href="register.php"><img src="%site_url%/web-gallery/v2/images/landing/uk_party_frontpage_image.gif" alt="" /></a>
+</div>
+	
+						
+					
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+			 
+
+</div>
+<div id="column3" class="column">
+</div>
+<div id="column-footer">
+		
+				<div class="habblet-container ">		
+	
+						<div class="habblet box-content" id="tag-cloud-slim">
+    <span class="tags-habbos-like">%short_name%s Like..</span>
+	    <ul class="tag-list">
+		<?php
+		$tagQuery = $mysqli->query("SELECT tag, COUNT(id) AS quantity FROM cms_tags GROUP BY tag ORDER BY quantity DESC LIMIT 24");
+			if(mysqli_num_rows($tagQuery) < 1) {
+			
+				echo "no tags"; 
+				
+			}
+			else {
+				for($i = 0;($tagArray[$i] = mysqli_fetch_array($tagQuery, 1)) !=""; $i++) {
+				
+					$tagRow[] = $tagArray[$i];
+				
+				}
+				
+				@sort($tagRow);
+				$i = -1;
+				while($i <> @mysqli_num_rows($tagQuery)) {
+					$i++;
+					@$tag = $tagRow[$i]['tag'];
+					@$count = $tagRow[$i]['quantity'];
+					$tags[$tag] = $count;
+				}
+				
+				$max_qty = max(array_values($tags));
+				$min_qty = min(array_values($tags));
+				$spread = $max_qty - $min_qty;
+			
+
+				if($spread == 0){
+				
+					$spread = 1;
+					
+				}
+
+				$step = (200 - 100)/($spread);
+
+				foreach($tags as $key => $value) {
+					$size = 100 + (($value - $min_qty) * $step);
+					$size = ceil($size);
+					echo "<li><a href=%site_url%/" . strtolower($key) . "\" class=\"tag\" style=\"font-size:" . $size . "%\">" . strtolower($key) . "</a></li>\n";
+
+				}
+			}
+			
+				?>
+</ul>
+</div>
+	
+						
+					
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+			 
+ 
+<!--[if lt IE 7]>
+<script type="text/javascript">
+Pngfix.doPngImageFix();
+</script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+<script type="text/javascript">
+Pngfix.doPngImageFix();
+</script>
+<![endif]-->
+
+<div id="footer">
+	<p><a href="%site_url%/" target="_self">Home</a> | <a href="%site_url%/papers/disclaimer" target="_self">Disclaimer</a> | <a href="%site_url%/papers/privacy" target="_self">Privacy Policy</a> | <a href="%site_url%/help/1" target="_new">Contact Us</a></p>
+		<p>Powered by <a href="http://nodebay.com/">WindPHP</a><br />Whistler [Build 2340]</p>
+	</div>			</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+HabboView.run();
+</script>
+
+
+</body>
+</html>
