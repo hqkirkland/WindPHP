@@ -126,7 +126,7 @@
                     <label for="login-remember-me">Remember me</label>
                 </li>
                 <li class="no-label">
-                    <a href="%site_url%/register" class="login-register-link"><span>Register for free</span></a>
+                    <a href="%site_url%/register" class="login-register-link"><span>Register for Free!</span></a>
                 </li>
                 <li class="no-label">
                     <a href="%site_url%/account/password/forgot" id="forgot-password"><span>I forgot my username/password</span></a>
@@ -262,7 +262,7 @@ Pngfix.doPngImageFix();
 
 <div id="footer">
 	<p><a href="%site_url%/" target="_self">Home</a> | <a href="%site_url%/papers/disclaimer" target="_self">Disclaimer</a> | <a href="%site_url%/papers/privacy" target="_self">Privacy Policy</a> | <a href="%site_url%/help/1" target="_new">Contact Us</a></p>
-		<p>Powered by <a href="http://nodebay.com/">WindPHP</a><br />Whistler [Build 2340]</p>
+		<p>Powered by <a href="http://nodebay.com/">WindPHP</a><br />Whistler [Build 2520]</p>
 	</div>			</div>
         </div>
     </div>

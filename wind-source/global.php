@@ -43,8 +43,19 @@
 
 		
 	/* Engine Section*/
+
+			
+
+		// Rev the engine..
+		include("/system/class.page.php");
+		include("system/class.user.php");
 		
+		use Whistler as Whistler;
 		
+		$page = new Whistler\Page();
+		$user = new Whistler\User();
+		
+		session_start();
 		
 		// Set Parameters
 		// Note: For more parameters (sessions. mostly) see the Session engine. It makes it easier to process them there!
@@ -59,16 +70,5 @@
 			"users_online" => $system["onlinecount"]
 			
 			);
-			
-
-		// Rev the engine..
-		include("/system/class.page.php");
-		
-		use Whistler as Whistler;
-		
-		$page = new Whistler\Page();
-		
-		session_start();
-
 	
 	?>

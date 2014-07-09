@@ -38,7 +38,7 @@
 				else {
 				
 				
-					if(!file_exists('C:/inetpub/wwwroot/system/pages/' . $tplId .  '.pop')) {
+					if(!file_exists("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop")) {
 					
 						return "Stop messing around and get back to the hotel :@<br /><br /> WE HAVE NOTHING TO HIDE LOL";
 					
@@ -59,9 +59,8 @@
 			final public function filterParams($template) {
 			
 				global $params;
-				$this->params = $params;
 			
-				foreach($this->params as $key => $value) {
+				foreach($params as $key => $value) {
 				
 					$template = str_ireplace('%' . $key . '%', $value, $template);
 				

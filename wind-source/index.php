@@ -18,6 +18,13 @@
 	$page->requireLogin = false;
 	echo $page->preparePage("index");
 	
+	if(isset($_POST["username"])) {
+	
+		$user->checkIn($_POST["username"], $_POST["password"]);
+		
+	
+	}
+	
 	
 	
 	?>
