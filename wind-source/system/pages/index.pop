@@ -109,7 +109,7 @@
 								<h2 class="title">Check In</h2>
 
     <div class="box-content clearfix" id="login-habblet">
-        <form action="%site_url%/account/submit" method="post" class="login-habblet">
+        <form action="%site_url%/index.php" method="post" class="login-habblet">
 			            <ul>
                 <li>
                     <label for="login-username" class="login-text">Username</label>

@@ -55,12 +55,9 @@
 		$page = new Whistler\Page();
 		$user = new Whistler\User();
 		
-		session_start();
-		
 		// Set Parameters
-		// Note: For more parameters (sessions. mostly) see the Session engine. It makes it easier to process them there!
 		$params = Array(
-		
+			
 			"hotel_name" => $hotel["name"],
 			"short_name" => $hotel["short_name"],
 			"server_ip" => $hotel["server_address"],
@@ -70,5 +67,17 @@
 			"users_online" => $system["onlinecount"]
 			
 			);
+			
+		// If you want to add additional parameters for your username, see the user engine under the "checkIn();" function :)
+		if(isset($_SESSION["user_id"])) {
+		
+			$params["username"] = $_SESSION["username"];
+			$params["user_id"] = $_SESSION["user_id"];
+			$params["auth_ticket"] = $_SESSION["auth_ticket"];
+			$params["user_rank"] = $_SESSION["rank"];
+		
+		}
+			
+			
 	
 	?>

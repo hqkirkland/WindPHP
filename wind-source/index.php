@@ -15,15 +15,21 @@
 
 	include("global.php");
 	
-	$page->requireLogin = false;
-	echo $page->preparePage("index");
+	define("REQUIRE_LOGIN", false);
+	define("ON_INDEX", true);
 	
+	echo $page->preparePage("index");
+
 	if(isset($_POST["username"])) {
 	
+	
+	
+	
+		
 		$user->checkIn($_POST["username"], $_POST["password"]);
 		
-	
 	}
+	
 	
 	
 	

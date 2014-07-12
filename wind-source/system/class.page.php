@@ -26,35 +26,34 @@
 			
 			final public function preparePage($tplId) {
 				
-				global $mysqli;
+				global $mysqli, $user;
 				
-				if($this->requireLogin) {
+				if(!ON_INDEX) {
 				
-					header("Location: /index.php");
-					exit;
-					
-				}
-				
-				else {
-				
-				
-					if(!file_exists("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop")) {
-					
-						return "Stop messing around and get back to the hotel :@<br /><br /> WE HAVE NOTHING TO HIDE LOL";
-					
+					if(REQUIRE_LOGIN == true && $user->checkLogin($_SESSION["username"]) == false) {
+						
+						header("Location: /index.php");
+						exit;
+						
 					}
-				
-					ob_start();
-					include('C:/inetpub/wwwroot/system/pages/' . $tplId .  '.pop');
-					$tpl = ob_get_contents();
-					ob_end_clean();
 					
-					return $this->filterParams($tpl);
+				}
+					
+				if(!file_exists("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop")) {
+		
+					return "Stop messing around and get back to the hotel :@<br /><br /> WE HAVE NOTHING TO HIDE LOL";
 				
 				}
 				
-			
+				ob_start();
+				include('C:/inetpub/wwwroot/system/pages/' . $tplId .  '.pop');
+				$tpl = ob_get_contents();
+				ob_end_clean();
+				
+				return $this->filterParams($tpl);
+				
 			}
+			
 			
 			final public function filterParams($template) {
 			
