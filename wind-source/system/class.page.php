@@ -11,8 +11,13 @@
 	Copyright (C) 2014 
 	written_by::programmer("hunter_kirkland");
 	
-	Released under GPL License v3 (See License.txt) */
+	Released under GPL License v3 (See License.txt)
 
+	If you change this program, you absolutely _MUST_ release
+	these changes even if under a new name, /and/ retain credits.
+	
+	*/
+	
 	namespace Whistler;
 	
 		class Page {
@@ -28,8 +33,10 @@
 				
 				global $mysqli, $user;
 				
+				// If we're not on the index, since that will never require a login,
 				if(!ON_INDEX) {
 				
+					// and if it does require a login, and a user is not logged in, send to the index page.
 					if(REQUIRE_LOGIN == true && $user->checkLogin($_SESSION["username"]) == false) {
 						
 						header("Location: /index.php");
@@ -38,10 +45,10 @@
 					}
 					
 				}
-					
+				
 				if(!file_exists("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop")) {
 		
-					return "Stop messing around and get back to the hotel :@<br /><br /> WE HAVE NOTHING TO HIDE LOL";
+					return "Stop messing around and get back to the hotel :@";
 				
 				}
 				
