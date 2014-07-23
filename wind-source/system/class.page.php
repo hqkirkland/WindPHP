@@ -25,7 +25,6 @@
 			final public function __construct() {
 			
 				global $mysqli;
-				$this->mysqli = $mysqli;
 				
 			}
 			
@@ -33,27 +32,23 @@
 				
 				global $mysqli, $user;
 				
-				// If we're not on the index, since that will never require a login,
-				if(!ON_INDEX) {
-				
-					// and if it does require a login, and a user is not logged in, send to the index page.
-					if(REQUIRE_LOGIN == true && $user->checkLogin($_SESSION["username"]) == false) {
-						
-						header("Location: /index.php");
-						exit;
-						
-					}
+				// and if it does require a login, and a user is not logged in, send to the index page.
+				if(REQUIRE_LOGIN == true && $user->checkLogin($_SESSION["username"]) == true) {
+					
+					header("Location: /index.php");
+					exit;
 					
 				}
+
 				
 				if(!file_exists("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop")) {
 		
-					return "Stop messing around and get back to the hotel :@";
+					return "we 404 now :DDDDD";
 				
 				}
 				
 				ob_start();
-				include('C:/inetpub/wwwroot/system/pages/' . $tplId .  '.pop');
+				include("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop");
 				$tpl = ob_get_contents();
 				ob_end_clean();
 				
@@ -73,6 +68,54 @@
 				}
 
 				return $template;
+			}
+			
+			final public function unicodeToImage($str){
+			
+				$search = array(
+				
+								'/\x{00a5}/u',
+								'/\x{00aa}/u',
+								'/\x{00ac}/u',
+								'/\x{00b1}/u',
+								'/\x{00b5}/u',
+								'/\x{00b6}/u',
+								'/\x{00ba}/u',
+								'/\x{00bb}/u',
+								'/\x{00d5}/u',
+								'/\x{00f5}/u',
+								'/\x{00f7}/u',
+								'/\x{0192}/u',
+								'/\x{2014}/u',
+								'/\x{2020}/u',
+								'/\x{2021}/u',
+								'/\x{2022}/u'
+								
+								);
+								
+				$replace = array(
+				
+								'<img src="%url%/web-gallery/images/fonts/volter/165.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/170.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/172.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/177.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/181.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/182.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/186.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/187.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/213.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/245.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/247.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/131.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/151.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/134.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/135.gif" class="vchar" />',
+								'<img src="%url%/web-gallery/images/fonts/volter/149.gif" class="vchar" />'
+								
+								);
+								
+				$str = preg_replace($search,$replace,$str);
+				return $str;
 			}
 		
 		}

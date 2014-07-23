@@ -20,9 +20,23 @@
 	
 	include("global.php");
 	
-	$page->requireLogin = false;
-	echo $page->preparePage("register");
+	define("REQUIRE_LOGIN", false);
 	
+
+	if(isset($_POST["bean_avatarName"])) {
+	
+		if((!isset($_POST["bean_figure"]) || !isset($_POST["bean_gender"])) && isset($_POST["randomFigure"])) {
+		
+			$_POST["bean_gender"] = substr($_POST["randomFigure"], 0, 1);
+			$_POST["bean_figure"] = substr($_POST["randomFigure"], 2);
+		
+		}
+		
+		$user->insertUser($_POST["bean_avatarName"], $_POST["password"], $_POST["bean_email"], $_POST["bean_figure"],
+						  $_POST["bean_gender"], $_POST["bean_day"], $_POST["bean_month"], $_POST["bean_year"]);
+	}
+	
+	echo $page->preparePage("register");
 	
 	
 	?>

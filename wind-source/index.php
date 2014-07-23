@@ -18,16 +18,22 @@
 	
 	*/
 	
-	include("global.php");
+	include("global.php");	
 	
 	define("REQUIRE_LOGIN", false);
-	define("ON_INDEX", true);
-	
 
-	if(isset($_POST["username"])) {	
+	
+	if(isset($_POST["username"])) {
 		
 		$user->checkIn($_POST["username"], $_POST["password"]);
 		
+	}
+	
+	if(isset($_SESSION["username"])) {
+	
+		header("Location: /me.php");
+		exit;
+	
 	}
 	
 	echo $page->preparePage("index");
