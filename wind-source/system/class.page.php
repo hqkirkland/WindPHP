@@ -33,7 +33,7 @@
 				global $mysqli, $user;
 				
 				// and if it does require a login, and a user is not logged in, send to the index page.
-				if(REQUIRE_LOGIN == true && $user->checkLogin($_SESSION["username"]) == true) {
+				if(REQUIRE_LOGIN == true && !isset($_SESSION["username"]) && $user->checkLogin == false) {
 					
 					header("Location: /index.php");
 					exit;
@@ -50,11 +50,11 @@
 				ob_start();
 				include("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop");
 				$tpl = ob_get_contents();
-				ob_end_clean();
 				
 				return $this->filterParams($tpl);
-				
-			}
+				ob_end_clean();
+
+				}
 			
 			
 			final public function filterParams($template) {
@@ -68,6 +68,7 @@
 				}
 
 				return $template;
+				
 			}
 			
 			final public function unicodeToImage($str){
@@ -116,6 +117,23 @@
 								
 				$str = preg_replace($search,$replace,$str);
 				return $str;
+			}
+			
+			final public function evenCheck($integer) {
+			
+				if($integer % 2 == 0) {
+				
+					return true;
+					
+				} 
+					
+				else {
+				
+					return false;
+						
+				}
+			
+			
 			}
 		
 		}

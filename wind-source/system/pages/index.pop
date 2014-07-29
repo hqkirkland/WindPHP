@@ -77,7 +77,7 @@
 					<div id="column1" class="column">					
 						<div class="habblet-container " id="create-habbo">
 							<div id="create-habbo-flash">
-								<div id="create-habbo-nonflash" style="background-image: url(%url%/web-gallery/v2/images/landing/landing_group.png)">
+								<div id="create-habbo-nonflash" style="background-image: url(%site_url%/web-gallery/v2/images/landing/landing_group.png)">
 									<br />
 									
 									<div id="landing-register-text">
