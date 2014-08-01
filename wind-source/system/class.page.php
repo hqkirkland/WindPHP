@@ -50,9 +50,9 @@
 				ob_start();
 				include("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop");
 				$tpl = ob_get_contents();
+				ob_end_clean();
 				
 				return $this->filterParams($tpl);
-				ob_end_clean();
 
 				}
 			
@@ -71,7 +71,7 @@
 				
 			}
 			
-			final public function unicodeToImage($str){
+			final public function unicodeToImage($str) {
 			
 				$search = array(
 				
@@ -117,6 +117,7 @@
 								
 				$str = preg_replace($search,$replace,$str);
 				return $str;
+				
 			}
 			
 			final public function evenCheck($integer) {
@@ -130,10 +131,20 @@
 				else {
 				
 					return false;
-						
+				
 				}
 			
 			
+			}
+			
+			final public function newsUrl($string) {
+			
+				trim(preg_replace('/\s\s+/',' ',preg_replace("/[^A-Za-z0-9-]/", " ", $string)));
+				trim(preg_replace('/\s\s+/',' ',preg_replace("/[^A-Za-z0-9-]/", " ", $string)));
+				strtolower($string)
+				str_replace(" ", "-", $string);
+				return $string;
+		
 			}
 		
 		}

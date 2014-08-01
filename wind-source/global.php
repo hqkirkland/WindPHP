@@ -68,7 +68,8 @@
 			"server_port" => $hotel["server_port"],
 			"site_url" => $site["url"],
 			"site_motto" => $site["motto"],
-			"users_online" => $system["onlinecount"]
+			"users_online" => $system["onlinecount"],
+			"build_number" => "3302"
 			
 			);
 			

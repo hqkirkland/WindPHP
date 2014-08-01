@@ -37,6 +37,8 @@
 	}
 	
 	echo $page->preparePage("index");
+	echo $page->preparePage("footer-tpl");
+
 
 	
 	
