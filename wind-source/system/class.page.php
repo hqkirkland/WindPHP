@@ -33,7 +33,8 @@
 				global $mysqli, $user;
 				
 				// and if it does require a login, and a user is not logged in, send to the index page.
-				if(REQUIRE_LOGIN == true && !isset($_SESSION["username"]) && $user->checkLogin == false) {
+				
+				if(REQUIRE_LOGIN == true && !isset($_SESSION["username"])) {
 					
 					header("Location: /index.php");
 					exit;
@@ -60,7 +61,7 @@
 			final public function filterParams($template) {
 			
 				global $params;
-			
+				
 				foreach($params as $key => $value) {
 				
 					$template = str_ireplace('%' . $key . '%', $value, $template);
@@ -137,14 +138,22 @@
 			
 			}
 			
-			final public function newsUrl($string) {
+			final public function getNews() {
+				
+				global $mysqli, $params;
+				
+				$i = 1;
+				
+				while($newsRow = mysqli_fetch_array($mysqli->query("SELECT * FROM cms_news ORDER BY time DESC LIMIT 5")) && $i > 6) {
+					
+					$params["newsTitle-" . $i] = $newsRow["title"];
+					$this->params["newsImage-" . $i] = $newsRow["header_image"];
+					$this->params["newsSummary-" . $i] = nl2br($newsRow["summary"]);
+					$this->params["newsDate-" . $i] = date("M j, Y", $newsRow["time"]);
+					$i++;
+					
+				}
 			
-				trim(preg_replace('/\s\s+/',' ',preg_replace("/[^A-Za-z0-9-]/", " ", $string)));
-				trim(preg_replace('/\s\s+/',' ',preg_replace("/[^A-Za-z0-9-]/", " ", $string)));
-				strtolower($string)
-				str_replace(" ", "-", $string);
-				return $string;
-		
 			}
 		
 		}

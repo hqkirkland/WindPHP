@@ -69,7 +69,9 @@
 					<h1><a href="%site_url%/"></a></h1>
 					<ul class="stats">
 							<li class="stats-online"><span class="stats-fig">%users_online%</span> %short_name%s online now</li>
-							<li class="stats-visited"><img src="%site_url%/web-gallery/v2/images/online.gif" alt="online" border="0"></li>
+							<li class="stats-visited">
+								<img src="%site_url%/web-gallery/v2/images/online.gif" alt="online" border="0">
+							</li>
 					</ul>
 
 				</div>
@@ -137,8 +139,7 @@
 												<ul>
 													<li>
 														<br />
-														Invalid username or password
-														<br />
+														Invalid username or password<br />
 														<br />
 													</li>
 												</ul>
@@ -249,6 +250,7 @@
 				
 			}
 			else {
+			
 				for($i = 0;($tagArray[$i] = mysqli_fetch_array($tagQuery, 1)) !=""; $i++) {
 				
 					$tagRow[] = $tagArray[$i];
