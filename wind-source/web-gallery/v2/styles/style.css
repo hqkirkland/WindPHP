@@ -1,4 +1,6 @@
 body {
+	background-color: #e3e3db;
+	background-image: url(../images/bg.png);
 	font-size: 11px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	text-align: center;
@@ -3680,11 +3682,6 @@ div.hr-body a {
     max-height: 200px;
 }
 
-.room-occupancy-1 { background-image: url(../images/rooms/room_icon_1.gif);	}
-.room-occupancy-2 { background-image: url(../images/rooms/room_icon_2.gif);	}
-.room-occupancy-3 { background-image: url(../images/rooms/room_icon_3.gif);	}
-.room-occupancy-4 { background-image: url(../images/rooms/room_icon_4.gif);	}
-.room-occupancy-5 { background-image: url(../images/rooms/room_icon_5.gif);	}
 
 #staffpicks-rooms-habblet-list-container .habblet-list {
     overflow: auto;
@@ -3855,3 +3852,4 @@ body#welcome #header-container { background-color: #FFF }
 #hotcampaigns-habblet-list li p { margin: 0; padding: 0; }
 #hotcampaigns-habblet-list li h3 { font-size: 13px; margin: 5px 0 0 0; padding: 0; }
 #hotcampaigns-habblet-list li img { margin: 5px 5px 5px 0; }
+
