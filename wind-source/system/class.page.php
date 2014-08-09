@@ -21,25 +21,30 @@
 	namespace Whistler;
 	
 		class Page {
-		
+	
+
 			final public function __construct() {
 			
 				global $mysqli;
 				
 			}
 			
-			final public function preparePage($tplId) {
+			final public function preparePage($tplId, $requireLogin) {
 				
 				global $mysqli, $user;
 				
-				// and if it does require a login, and a user is not logged in, send to the index page.
+				if($requireLogin) {
 				
-				if(REQUIRE_LOGIN == true && !isset($_SESSION["username"])) {
-					
-					header("Location: /index.php");
-					exit;
+					if(!$user->checkLogin()) {
+						
+						session_destroy();
+						header("Location: /index.php");
+						exit;
+						
+					}
 					
 				}
+					
 
 				
 				if(!file_exists("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop")) {
@@ -57,7 +62,7 @@
 				
 				return $this->filterParams($tpl);
 
-				}
+			}
 			
 			
 			final public function filterParams($template) {

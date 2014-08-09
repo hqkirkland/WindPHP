@@ -41,14 +41,18 @@
 		$hotel["short_name"] = "Wind";
 		$hotel["server_address"] = "127.0.0.1";
 		$hotel["server_port"] = "4000";
+		$hotel["server_mus"] = "4001";
+		
+		$hotel["dcr_base"] = "http://dev.nodebay.com/v26/"; // Change this
+		$hotel["external_variables"] = "http://dev.nodebay.com/v26/external_variables.txt"; // Change this
+		$hotel["external_texts"] = "http://dev.nodebay.com/v26/external_texts.txt"; // Change this
+		
 		
 		// Select more settings and data from the database
 		$system = mysqli_fetch_array($mysqli->query("SELECT * FROM system"));
 
 		
 	/* Engine Section*/
-
-			
 
 		// Rev the engine..
 		include("/system/class.page.php");
@@ -66,10 +70,14 @@
 			"short_name" => $hotel["short_name"],
 			"server_ip" => $hotel["server_address"],
 			"server_port" => $hotel["server_port"],
+			"server_mus" => $hotel["server_mus"],
+			"dcr_base" => $hotel["dcr_base"],
+			"external_variables" => $hotel["external_variables"],
+			"external_texts" => $hotel["external_texts"],
 			"site_url" => $site["url"],
 			"site_motto" => $site["motto"],
 			"users_online" => $system["onlinecount"],
-			"build_number" => "3302"
+			"build_number" => "4024"
 			
 			);
 			

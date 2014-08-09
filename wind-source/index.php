@@ -18,10 +18,8 @@
 	
 	*/
 	
-	include("global.php");	
+	include("global.php");
 	
-	define("REQUIRE_LOGIN", false);
-
 	
 	if(isset($_POST["username"])) {
 		
@@ -36,7 +34,9 @@
 	
 	}
 	
-	echo $page->preparePage("index");
+	$requireLogin = false;
+		
+	echo $page->preparePage("index", $requireLogin);
 	echo $page->preparePage("footer-tpl");
 
 

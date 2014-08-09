@@ -20,8 +20,7 @@
 	
 	include("global.php");
 	
-	define("REQUIRE_LOGIN", false);
-	
+	$requireLogin = false;
 
 	if(isset($_POST["bean_avatarName"])) {
 	
@@ -32,11 +31,17 @@
 		
 		}
 		
-		$user->insertUser($_POST["bean_avatarName"], $_POST["password"], $_POST["bean_email"], $_POST["bean_figure"],
-						  $_POST["bean_gender"], $_POST["bean_day"], $_POST["bean_month"], $_POST["bean_year"]);
+		if($user->insertUser($_POST["bean_avatarName"], $_POST["password"], $_POST["bean_email"], $_POST["bean_figure"],
+						  $_POST["bean_gender"], $_POST["bean_day"], $_POST["bean_month"], $_POST["bean_year"])) {
+						  
+			header("Location: /me");
+			exit;
+						  
+		}
+		
 	}
 	
-	echo $page->preparePage("register");
+	echo $page->preparePage("register", $requireLogin);
 	
 	
 	?>

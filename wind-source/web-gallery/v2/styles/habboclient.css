@@ -7,7 +7,7 @@ body#client {
 
 #client-topbar {	
 	background: url(../images/popup/popup_topbar_slice.gif) repeat-x; 
-	width: 720px;
+	width: 960px;
 	height: 29px;
 	font-size: 9px;
 }
@@ -54,7 +54,7 @@ body#client {
 }
 
 #clientembed, #clientembed-loader, #clientembed-loader div.loader-image-inner {
-	width: 720px;
+	width: 960px;
 	overflow: hidden;
     height: 540px;
 }
