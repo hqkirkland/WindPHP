@@ -47,6 +47,8 @@
 					return "we 404 now :DDDDD";
 				
 				}
+	
+				// Write ban if statement here.
 				
 				ob_start();
 				include("C:/inetpub/wwwroot/system/pages/" . $tplId .  ".pop");

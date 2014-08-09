@@ -82,7 +82,7 @@
 			$params["user_rank"] = $_SESSION["rank"];
 		
 		}
-			
-			
+		
+		
 	
 	?>
