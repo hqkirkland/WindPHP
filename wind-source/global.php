@@ -39,18 +39,21 @@
 		// Hotel Options
 		$hotel["name"] = "Wind Hotel";
 		$hotel["short_name"] = "Wind";
+		
+		
+		// Notice: These variables should also match in Holo's system_config table to work!
 		$hotel["server_address"] = "127.0.0.1";
 		$hotel["server_port"] = "4000";
 		$hotel["server_mus"] = "4001";
+	
 		
-		$hotel["dcr_base"] = "http://dev.nodebay.com/v26/"; // Change this
-		$hotel["external_variables"] = "http://dev.nodebay.com/v26/external_variables.txt"; // Change this
-		$hotel["external_texts"] = "http://dev.nodebay.com/v26/external_texts.txt"; // Change this
+		$hotel["dcr_base"] = "http://dev.nodebay.com/v26/"; // Change this!
+		$hotel["external_variables"] = "http://dev.nodebay.com/v26/external_variables.txt"; // Change this!
+		$hotel["external_texts"] = "http://dev.nodebay.com/v26/external_texts.txt"; // Change this!
 		
 		
 		// Select more settings and data from the database
 		$system = mysqli_fetch_array($mysqli->query("SELECT * FROM system"));
-
 		
 	/* Engine Section*/
 
