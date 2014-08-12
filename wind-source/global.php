@@ -24,7 +24,7 @@
 		$mysqli_host = "localhost";
 		$mysqli_user = "root";
 		$mysqli_password = "*static-?827aj!zpAnkzsT{^ja";
-		$mysqli_database = "shockwave";
+		$mysqli_database = "shockwave2";
 		
 		// Start MySQLi up here because we're going to use it sooner than I thought.
 		$mysqli = new MySQLi($mysqli_host, $mysqli_user, $mysqli_password, $mysqli_database);
@@ -42,11 +42,11 @@
 		
 		
 		// Notice: These variables should also match in Holo's system_config table to work!
-		$hotel["server_address"] = "127.0.0.1";
+		$hotel["server_address"] = "108.193.69.127";
 		$hotel["server_port"] = "4000";
 		$hotel["server_mus"] = "4001";
 	
-		
+		$hotel["habbo_dcr"] = "http://dev.nodebay.com/v26/habbo.dcr"; // Change this!
 		$hotel["dcr_base"] = "http://dev.nodebay.com/v26/"; // Change this!
 		$hotel["external_variables"] = "http://dev.nodebay.com/v26/external_variables.txt"; // Change this!
 		$hotel["external_texts"] = "http://dev.nodebay.com/v26/external_texts.txt"; // Change this!
@@ -63,6 +63,8 @@
 		
 		use Whistler as Whistler;
 		
+		session_start();
+
 		$page = new Whistler\Page();
 		$user = new Whistler\User();
 		
@@ -89,10 +91,17 @@
 		
 			$params["username"] = $_SESSION["username"];
 			$params["user_id"] = $_SESSION["user_id"];
-			$params["auth_ticket"] = $_SESSION["auth_ticket"];
 			$params["user_rank"] = $_SESSION["rank"];
 		
 		}
+		
+		if($site["reverse_proxy"] == true || $site["cloudflare"] == true) {
+		
+			$_SERVER["REMOTE_ADDR"] = $_SERVER["HTTP_X_FORWARDED_FOR"];
+		
+		}
+		
+
 		
 		
 	
