@@ -1,0 +1,368 @@
+<?php
+	
+	require("header-tpl.pop");
+
+	
+	?>
+<div id="container">
+	<div id="content">
+		<div id="column1" class="column">
+				<div class="habblet-container">
+						<div id="new-personal-info" style="background-image: url(%site_url%/web-gallery/v2/images/personal_info/hotel_views/htlview_br.png)" />
+				<div class="enter-hotel-btn ">
+					<div class="open enter-btn">
+						<a href="%site_url%/client" target="client" onclick="openOrFocusHabbo(this); return false;">Enter %short_name%<i></i></a>
+						<b></b>
+					</div>
+				</div>
+
+		<div id="habbo-plate">
+			<a href="%site_url%/profile">
+				<img alt="%username%" src="http://www.habbo.co.uk/habbo-imaging/avatarimage?figure=<?php echo $user->get("figure"); ?>" width="64" height="110" />
+			</a>
+		</div>
+
+		<div id="habbo-info">
+			<div id="motto-container" class="clearfix">
+				<strong>%username%:</strong>
+				<div>
+					<span title="Change motto..">
+					<?php 
+					
+						if($user->get("mission") != "") {
+						
+							echo $this->unicodeToImage($user->get("mission"));
+						
+						}
+						
+						else {
+						
+							echo "Change motto";
+						
+						}
+						
+						?>
+					</span>
+					<p style="display: none">
+						<input type="text" length="30" name="motto" value="<?php echo $user->get("mission"); ?>">
+					</p>
+				</div>
+			</div>
+			<div id="motto-links" style="display: none"><a href="#" id="motto-cancel">Cancel</a></div>
+		</div>
+		<ul id="link-bar" class="clearfix">
+			<li class="change-looks">
+				<a href="%site_url%/profile">Change looks &raquo;</a>
+			</li>
+			<li class="credits">
+				<a href="%site_url%/credits"><?php echo $user->get("credits"); ?> Credits</a>
+			</li>
+			<li class="club">
+				   <a href="%site_url%/club">
+						<?php 
+					
+						$clubDays = $user->getClubDays();
+						
+						if($clubDays < 1) { 
+						
+							echo "Join %short_name% Club &raquo;</a>"; 
+						
+						}
+
+						else {
+
+							echo $clubDays . " Club days left</a>";
+							
+						}
+
+							?>
+			</li>
+		</ul>
+
+    <div id="habbo-feed">
+        <ul id="feed-items">
+	<?php
+	
+		$user->displayNotifications();
+		
+		
+		/*
+		$sql = $data->select14($user->id);
+		$i = 0;
+		$groups = "";
+		while($row = $db->fetch_row($sql)){
+			$row2 = $db->fetch_assoc($db->query("SELECT MAX(".PREFIX."forum_posts.time) AS lastpost_time FROM ".PREFIX."forum_threads,".PREFIX."forum_posts WHERE groupid = '".$row[0]."' LIMIT 1"));
+			if($row2['lastpost_time'] > $user->user("lastvisit")){
+				$i++;
+				$groups = $groups."\n<a href=\"".groupURL($row[0])."/discussions\">".$row[1]."</a>, ";
+			}
+		}
+		if($i > 0 && $groups != ""){
+		$groups = substr($groups,0,-2);
+
+					<li class="small" id="feed-group-discussion">
+						<strong><?php echo $i; ?></strong> <?php echo $lang->loc['groups.new.messages']; ?>:
+						<span><?php echo $groups; ?>
+						</span>
+					</li>
+		*/
+		
+		?>
+
+							<li class="small" id="feed-lastlogin">
+								Last Checked In: <?php echo date('M j, Y g:i:s A', $user->get("lastvisit")); ?>
+							</li>
+						</ul>
+					</div>
+					<p class="last"></p>
+				</div>
+
+				<script type="text/javascript">
+					HabboView.add(function() {
+						L10N.put("personal_info.motto_editor.spamming", "Please don't spam!");
+						PersonalInfo.init("");
+					});
+				</script>
+
+
+                <script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+				
+				<div class="habblet-container ">		
+					<div class="cbb clearfix orange ">
+						<h2 class="title">Hot Campaigns</h2>
+						<div id="hotcampaigns-habblet-list-container">
+							<ul id="hotcampaigns-habblet-list">
+								<?php
+								
+									$int = 2;
+									$campaignQuery = $mysqli->query("SELECT * FROM cms_campaigns WHERE visible = '1' ORDER BY id DESC LIMIT 3");
+									
+									
+									while($campaignRow = mysqli_fetch_array($campaignQuery)) {
+									
+										if($this->evenCheck($int)) {
+											
+											echo '
+												<li class="even">											
+													<div class="hotcampaign-container">
+														<a href="' . $campaignRow["url"] . '"><img src="' . $campaignRow["image"] . '" align="left" alt="" /></a>
+														<h3>' . $campaignRow["name"] . '</h3>
+														<p>' . $campaignRow["desc"] . '</p><p class="link"><a href="' . $campaignRow["url"] . '">Check It Out &raquo;</a></p>
+													</div>
+												</li>';
+											
+											$int++;
+
+										}
+										
+										else {
+										
+											echo '
+												<li class="odd">
+													<div class="hotcampaign-container">
+														<a href="' . $campaignRow["url"] . '"><img src="' . $campaignRow["image"] . '" align="left" alt="" /></a>
+														<h3>' . $campaignRow["name"] . '</h3>
+														<p>' . $campaignRow["desc"] . '</p><p class="link"><a href="' . $campaignRow["url"] . '">Check It Out &raquo;</a></p>
+													</div>
+												</li>';
+										
+											$int++;
+										
+										}
+									
+									}
+
+									?>
+
+								</ul>
+							</div>	
+						</div>
+					</div>
+					<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+
+	<?php
+
+		//	LET'S GO ALL
+		//  THE WAY TONITE
+		//	NO REGRETS
+		//  JST LOVE
+		//	WE CAN DNCE
+		//  UNTIL WE DIE
+		//  U AND I,
+		// 	WE'LL B YOUNG 4EVR
+		
+		//	U
+		//  MAKE
+		//  ME
+		//  FEEL LIKE IM LIVIN A
+		//  TEEN
+		//  AGE
+		//  DREAM
+		//	THE WAY U TURN ME ON
+		//  I
+		//  CNT
+		//  SLEEP
+		//	LETS RUN AWAY AND DNT EVER LOOK BK
+		//  DNT EVER LOOK BK
+		
+		?>
+		
+				<div class="habblet-container ">		
+					<div class="cbb clearfix darkred ">
+						<h2 class="title">Events</h2>
+						<div id="current-events">
+							<div class="category-selector">
+								<p>Browse through events going on in the hotel.</p>
+								<select id="event-category">
+								<?php
+								
+									$categoriesString = "Parties & Clubs|Trade & Shopping|Games & Mazes|Staff Events|Themed & RPG|Chat, Chill, & Discussion|Help";
+									
+									$int = 0;
+									
+									$categories = explode("|", $categoriesString);
+									
+									foreach($categories as $category) {
+
+										echo '<option value="' . $int . '">' . $category . '</option>';
+										$int++;
+									
+									}
+
+									?>
+								</select>
+							</div>
+							<div id="event-list">
+
+							<?php 
+							/*
+								$page['bypass'] = true; 
+								
+								require_once('./habblet/ajax/loadEvents.php'); 
+							*/
+							?>
+
+							</div>
+						</div>
+					<script type="text/javascript">
+						document.observe('dom:loaded', function() {
+							CurrentRoomEvents.init();
+						});
+					</script>
+	
+						
+					</div>
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+			</div>
+		</div>
+					<div id="column2" class="column">
+						<div class="habblet-container news-promo">
+							<div class="cbb clearfix notitle ">
+								<div id="newspromo">
+									<?php
+										
+										$newsQuery = $mysqli->query("SELECT * FROM cms_news ORDER BY time DESC LIMIT 5");
+										$i = 0;
+										
+										while($newsRow = mysqli_fetch_array($newsQuery)) {
+										
+											$newsRow["date"] = date("M j, Y", $newsRow["time"]);
+											$news[$i] = $newsRow;
+											$i++;
+											
+										}
+										
+										echo '
+										<div id="topstories">
+											<div class="topstory" style="background-image: url(' . $news[0]["header_image"] . ')">
+												<h4>Latest News</a></h4>
+												<h3><a href="%site_url%/articles/ ' . $news[0]["id"] . '">' . $news[0]["title"] . '</a></h3>
+												<p class="summary">' . $news[0]["summary"] . '</p>
+												<p>
+													<a href="%site_url%/articles/' . $news[0]["id"] . '">Read More &raquo;</a>
+												</p>
+											</div>
+											<div class="topstory" style="background-image: url(' . $news[1]["header_image"] . ')">
+												<h4>Latest News</a></h4>
+												<h3><a href="%site_url%/articles/' . $news[1]["id"] . '">' . $news[1]["title"] . '</a></h3>
+												<p class="summary">' . $news[1]["summary"] . '</p>
+												<p>
+													<a href="%site_url%/articles/' . $news[1]["id"] . '">Read More &raquo;</a>
+												</p>
+											</div>
+											<div class="topstory" style="background-image: url(' . $news[2]["header_image"] . ')">
+												<h4>Latest News</a></h4>
+												<h3><a href="%site_url%/articles/' . $news[2]["id"] . '">' . $news[2]["title"] . '</a></h3>
+												<p class="summary">' . $news[2]["summary"] . '</p>
+												<p>
+													<a href="%site_url%/articles/' . $news[2]["id"] . '">Read More &raquo;</a>
+												</p>
+											</div>
+											<div id="topstories-nav" style="display: none">
+											<a href="#" class="prev">&laquo; Latest News</a><span>1</span> / 3<a href="#" class="next">Suivant &raquo</a></div>
+										</div>
+										<ul class="widelist">
+											<li class="even">
+												<a href="%site_url%/articles/' . $news[3]["id"] . '">' . $news[3]["title"] . '</a>
+												<div class="newsitem-date">' . $news[3]["date"] . '</div>
+											</li>
+											<li class="odd">
+												<a href="%site_url%/articles/' . $news[4]["id"] . '">' . $news[4]["title"] . '</a>
+												<div class="newsitem-date">' . $news[4]["date"] . '</div>
+											</li>
+											<li class="last"><a href="%site_url%/articles">More News &raquo;</a></li>
+										</ul>';
+										
+										?>
+									</div>
+									<script type="text/javascript">
+										document.observe("dom:loaded", function() { NewsPromo.init(); });
+									</script>
+								</div>
+							</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+						<div class="habblet-container ">		
+							<div class="cbb clearfix red ">
+								<h2 class="title">Badge Shop</h2>
+								<br />
+								<form id="buybadge" method="POST" style="margin: 0 auto;">
+										<?php
+											
+											
+											$badgeArray = mysqli_fetch_array($mysqli->query("SELECT * FROM badge_shop WHERE id = '1' LIMIT 1"));
+												
+											echo '<center><img src="%site_url%/web-gallery/badges/' . $badgeArray["badgeid"] . '.gif" /><br /><br />
+											
+											<b>' . $badgeArray["cost"] . ' Coins</b><br />';
+										
+											if(isset($_POST["buybadge"]) && $_POST["buybadge"]) {
+											
+												$mysqli->query("INSERT INTO users_badges (userid, badgeid, slotid) VALUES ('{$_SESSION["user_id"]}', '{$badgeArray["badgeid"]}', '0')");
+												echo '<br /><br /><div style="color: #5BB75B">Success! Badge purchased.</div><br />';
+												
+											}
+											
+											
+											?>
+										<input name="buybadge" type="hidden" value="true">
+										<input type="submit" class="submit" value="Purchase" name="BUY_BADGE">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+
+		<script type="text/javascript">
+			HabboView.add(LoginFormUI.init);
+		</script>
+
+	<?php
+	
+		require("footer-tpl.pop");
+	
+	?>
+

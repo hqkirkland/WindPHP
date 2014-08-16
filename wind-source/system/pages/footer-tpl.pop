@@ -1,0 +1,29 @@
+						<div id="footer">
+							<p><a href="%site_url%" target="_self">Home</a> | <a href="%site_url%/papers/disclaimer" target="_self">Disclaimer</a> | <a href="%site_url%/papers/privacy" target="_self">Privacy Policy</a> | <a href="%site_url%/help/1" target="_new">Contact Us</a></p>
+								<?php
+
+									/* DO NOT REMOVE THE CREDITS BELOW!
+									If you do, you're disrespecting me, The Developer,
+									and killing the community. At this point, you've
+									become a part of the problem.
+									
+									You are also in violation of the GPL license.
+									
+									I won't come back for a WindPHP 2 or 3 if I see
+									too many people removing my credits.
+									
+									Come on. It's disrespectful. Just use common sense!
+								
+									*/
+									
+								?>
+								
+								<p>Powered by <a href="http://nodebay.com/">WindPHP</a><br />"Whistler" [Build %build_number%]</p>
+						</div>			
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">HabboView.run();</script>
+	</body>
+</html>

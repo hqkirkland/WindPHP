@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>%short_name%: <?php echo PAGE_TITLE; ?></title>
+
+	<?php
+	
+		$ticket = "Whistler-".$_SESSION["user_id"]."-".mt_rand(1,9).mt_rand(1,9).mt_rand(1,9).mt_rand(1,9)."-".mt_rand(1,9).mt_rand(1,9).mt_rand(1,9).mt_rand(1,9)."-".mt_rand(1,9).mt_rand(1,9).mt_rand(1,9).mt_rand(1,9);
+		$mysqli->query("UPDATE users SET lastvisit = UNIX_TIMESTAMP(), ticket_sso = '{$ticket}', ipaddress_last = '{$_SERVER["HTTP_X_FORWARDED_FOR"]}' WHERE name = '{$_SESSION["username"]}'");
+		$_SESSION["auth_ticket"] = $ticket;
+	
+	?>
+	
+<script type="text/javascript">
+var andSoItBegins = (new Date()).getTime();
+</script>
+    <link rel="shortcut icon" href="%site_url%/web-gallery/v2/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" type="application/rss+xml" title="<?php echo SHORTNAME; ?>: <?php echo $lang->loc['rss']; ?>" href="%site_url%/articles/rss.xml" />
+<script src="%site_url%/web-gallery/static/js/libs2.js" type="text/javascript"></script>
+<script src="%site_url%/web-gallery/static/js/visual.js" type="text/javascript"></script>
+<script src="%site_url%/web-gallery/static/js/libs.js" type="text/javascript"></script>
+<script src="%site_url%/web-gallery/static/js/common.js" type="text/javascript"></script>
+<script src="%site_url%/web-gallery/static/js/fullcontent.js" type="text/javascript"></script>
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/style.css" type="text/css" />
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/buttons.css" type="text/css" />
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/boxes.css" type="text/css" />
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/tooltips.css" type="text/css" />
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/habboclient.css" type="text/css" />
+<script src="%site_url%/web-gallery/static/js/habboclient.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+document.habboLoggedIn = true;
+var habboName = "%username%";
+var ad_keywords = "";
+var habboReqPath = "%site_url%";
+var habboStaticFilePath = "%site_url%/web-gallery";
+var habboImagerUrl = "%site_url%/habbo-imaging/";
+var habboPartner = "";
+window.name = "client";
+if (typeof HabboClient != "undefined") { HabboClient.windowName = "client"; }
+
+</script>
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/ie8.css" type="text/css" />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/ie.css" type="text/css" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" href="%site_url%/web-gallery/v2/styles/ie6.css" type="text/css" />
+<script src="%site_url%/web-gallery/static/js/pngfix.js" type="text/javascript"></script>
+<script type="text/javascript">
+try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}
+</script>
+
+<style type="text/css">
+body { behavior: url(%site_url%/web-gallery/js/csshover.htc); }
+</style>
+<![endif]-->
+<meta name="build" content="WindPHP 'Dilla-J' %build_number%" />
+</head>
+
+<body id="client">
+
+<div id="client-topbar">
+	<div class="logo"><img src="%site_url%/web-gallery/images/popup/popup_topbar_habbologo.gif" alt="" align="middle"/></div>
+		<div class="habbocount">
+			<div id="habboCountUpdateTarget">%users_online% Winds Online</div>
+		<script language="JavaScript" type="text/javascript">
+			setTimeout(function() {
+				HabboCounter.init(600);
+			}, 20000);
+		</script>
+		</div>
+		<div class="logout"><a href="%site_url%/account/logout?origin=popup" onclick="self.close(); return false;">Close Hotel</a></div>
+	</div>
+
+
+<div id="clientembed-container">
+<div id="clientembed-loader" class="loader-image" style="display:none">
+    <div class="loader-image-inner">
+        <b class="loading-text">Loading...</b>
+    </div>
+</div>
+
+<div id="clientembed">
+<script type="text/javascript" language="javascript">
+try {
+var _shockwaveDetectionSuccessful = true;
+_shockwaveDetectionSuccessful = ShockwaveInstallation.swDetectionCheck();
+if (!_shockwaveDetectionSuccessful) {
+    log(50);
+}
+if (_shockwaveDetectionSuccessful) {
+  ShockwaveInstallation.removeInstallationCookie();
+  HabboClientUtils.cacheCheck();
+}
+} catch(e) {
+    try {
+		HabboClientUtils.logClientJavascriptError(e);
+	} catch(e2) {}
+}
+
+    HabboClientUtils.extWrite("<object classid=\"clsid:166B1BCA-3F9C-11CF-8075-444553540000\" codebase=\"http://download.macromedia.com/pub/shockwave/cabs/director/sw.cab#version=10,0,0,0\" id=\"habbo\" width=\"960\" height=\"540\"\>\n<param name=\"src\" value=\"%dcr_base%/habbo.dcr\"\>\n<param name=\"swRemote\" value=\"swSaveEnabled=\'true\' swVolume=\'true\' swRestart=\'false\' swPausePlay=\'false\' swFastForward=\'false\' swTitle=\'%hotel_name%\' swContextMenu=\'true\' \"\>\n<param name=\"swStretchStyle\" value=\"stage\"\>\n<param name=\"swstretchVAlign\" value=\"bottom\"\>\n<param name=\"swText\" value=\"\"\>\n<param name=\"bgColor\" value=\"#000000\"\>\n   <param name=\"sw7\" value=\"external.variables.txt=%external_variables%;external.texts.txt=%external_texts%\"\>\n   <param name=\"sw6\" value=\"client.connection.failed.url=%site_url%/client_connection_failed;external.hash=null\"\>\n   <param name=\"sw5\" value=\"client.reload.url=%site_url%/account/reauthenticate?page=/client;client.fatal.error.url=http://retro.cecer1.com/err\"\>\n   <param name=\"sw4\" value=\"site.url=%site_url%;url.prefix=%site_url%\"\>\n   <param name=\"sw9\" value=\"<?php /*if(isset($_GET['shortcut'])){ ?>shortcut.id=<?php echo $shortcut; ?>;<?php } */ ?>account_id=%user_id%\"\>\n   <param name=\"sw8\" value=\"use.sso.ticket=1;sso.ticket=<?php echo $_SESSION["auth_ticket"]; ?>\"\>\n   <param name=\"sw2\" value=\"connection.info.host=%server_ip%;connection.info.port=%server_port%\"\>\n   <param name=\"sw3\" value=\"connection.mus.host=%server_ip%;connection.mus.port=%server_mus%\"\>\n   <param name=\"sw1\" value=\"client.allow.cross.domain=0;client.notify.cross.domain=1\"\>\n   <param name=\"playerVersion\" value=\"11\"\>\n<embed src=\"%dcr_base%/habbo.dcr\" bgColor=\"#000000\" width=\"960\" height=\"540\" swRemote=\"swSaveEnabled=\'true\' swVolume=\'true\' swRestart=\'false\' swPausePlay=\'false\' swFastForward=\'false\' swTitle=\'%hotel_name%\' swContextMenu=\'true\'\" swStretchStyle=\"stage\" swstretchVAlign=\"bottom\" swText=\"\" type=\"application/x-director\" pluginspage=\"http://www.macromedia.com/shockwave/download/\" \n    sw7=\"external.variables.txt=%external_variables%;external.texts.txt=%external_texts%\"  \n    sw6=\"client.connection.failed.url=%site_url%/client_connection_failed;external.hash=null\"  \n    sw5=\"client.reload.url=%site_url%/account/reauthenticate?page=/client;client.fatal.error.url=http://retro.cecer1.com/err\"  \n    sw4=\"site.url=%site_url%;url.prefix=%site_url%\"  \n    sw9=\"<?php /*if(isset($_GET['shortcut'])){ ?>shortcut.id=<?php echo $shortcut; ?>;<?php } */?>account_id=%user_id%\"  \n    sw8=\"use.sso.ticket=1;sso.ticket=<?php echo $_SESSION["auth_ticket"]; ?>\"  \n    sw2=\"connection.info.host=%server_ip%;connection.info.port=%server_port%\"  \n    sw3=\"connection.mus.host=%server_ip%;connection.mus.port=%server_mus%\"  \n    sw1=\"client.allow.cross.domain=0;client.notify.cross.domain=1\"  \n    playerVersion=\"11\" \></embed\>\n<noembed\>You need the Shockwave plugin (free and safe to download) to enter %hotel_name%. <a href=\"http://www.adobe.com/shockwave/download/\" target=\"_new\"\>Download here</a\></noembed\>\n</object\>");
+
+	</script>																																																																																																																																																																																																					
+
+<noscript>
+<object classid="clsid:166B1BCA-3F9C-11CF-8075-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/director/sw.cab#version=10,0,0,0" id="habbo" width="960" height="540">
+<param name="src" value="%dcr_base%/habbo.dcr">
+<param name="swRemote" value="swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='%hotel_name%' swContextMenu='true' ">
+<param name="swStretchStyle" value="stage">
+<param name="swstretchVAlign" value="bottom">
+<param name="swText" value="">
+<param name="bgColor" value="#000000">
+   <param name="sw7" value="external.variables.txt=%external_variables%;external.texts.txt=%external_texts%">
+   <param name="sw6" value="client.connection.failed.url=%site_url%/client_connection_failed;external.hash=null">
+   <param name="sw5" value="client.reload.url=%site_url%/account/reauthenticate?page=/client;client.fatal.error.url=http://retro.cecer1.com/err">
+   <param name="sw4" value="site.url=%site_url%;url.prefix=%site_url%">
+   <param name="sw9" value="account_id=%user_id%">
+   <param name="sw8" value="use.sso.ticket=1;sso.ticket=<?php echo $_SESSION["auth_ticket"]; ?>">
+   <param name="sw2" value="connection.info.host=%server_ip%;connection.info.port=%server_port%">
+   <param name="sw3" value="connection.mus.host=%server_ip%;connection.mus.port=%server_mus%">
+   <param name="sw1" value="client.allow.cross.domain=1;client.notify.cross.domain=1">
+   <param name="playerVersion" value="11">
+<!--[if IE]>You need shockwave.It takes like, 20 seconds to install it. The shockwave community has been dead because of lazy fucks not wanting to install it to play awesome hotels. Do it. :l <a href="http://www.adobe.com/shockwave/download/" target="_new">Download Here&raquo;</a><![endif]-->
+<embed src="%dcr_base%/habbo.dcr" bgColor="#000000" width="960" height="540" swRemote="swSaveEnabled='true' swVolume='true' swRestart='false' swPausePlay='false' swFastForward='false' swTitle='%hotel_name%' swContextMenu='true'" swStretchStyle="stage" swstretchVAlign="bottom" swText="" type="application/x-director" pluginspage="http://www.macromedia.com/shockwave/download/" 
+    sw7="external.variables.txt=%external_variables%;external.texts.txt=%external_texts%"
+    sw6="client.connection.failed.url=%site_url%/client_connection_failed;external.hash=null"
+    sw5="client.reload.url=%site_url%/account/reauthenticate?page=/client;client.fatal.error.url=http://retro.cecer1.com/err"
+    sw4="site.url=%site_url%;url.prefix=%site_url%"
+    sw9="account_id=%user_id%"
+    sw8="use.sso.ticket=1;sso.ticket=<?php echo $_SESSION["auth_ticket"]; ?>"  
+    sw2="connection.info.host=%server_ip%;connection.info.port=%server_port%"  
+    sw3="connection.mus.host=%server_ip%;connection.mus.port=%server_mus%"  
+    sw1="client.allow.cross.domain=0;client.notify.cross.domain=1"  
+    playerVersion="11" ></embed>
+<noembed>You need shockwave.It takes like, 20 seconds to install it. The shockwave community has been dead because of lazy fucks not wanting to install it to play awesome hotels. Do it. :l<a href="http://www.adobe.com/shockwave/download/" target="_new">Download Here&raquo;</a></noembed>
+</object>
+</noscript>
+
+</div>
+<script type="text/javascript">
+HabboClientUtils.loaderTimeout = 10 * 1000;
+HabboClientUtils.showLoader(["Loading", "Loading.", "Loading..", "Loading..."]);
+</script>
+</div>
+<?php echo $_SESSION["auth_ticket"]; ?>
+</body>
+</html>

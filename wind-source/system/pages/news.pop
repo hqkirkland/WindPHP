@@ -1,0 +1,84 @@
+	<?php
+		
+		require("header-tpl.pop");
+		
+		?>
+	<script>document.getElementsByTagName('body')[0].id="news"</script>
+	<div id="wrapper">
+		<div id="container">
+			<div id="content" style="position: relative" class="clearfix">
+				<div id="column1" class="column">					
+					<div class="habblet-container ">		
+						<div class="cbb clearfix default ">
+							<h2 class="title">News</h2>
+							<div id="article-archive">
+								<ul>	
+									<?php 
+											
+										$archiveQuery = $mysqli->query("SELECT id, title FROM cms_news ORDER BY time DESC");
+											
+											
+										while($archiveArray = mysqli_fetch_array($archiveQuery)) {
+											
+											if($archiveArray["id"] == $_GET["id"]) {
+												
+												echo '<strong>' . $archiveArray["title"] . '</strong><br />&raquo;';
+													
+											}
+												
+											else {
+												
+												echo '<a href="' . $archiveArray["id"] . '">' . $archiveArray["title"] . '</a><br />&raquo;';
+												
+											}
+											
+										}
+											
+										?>	
+								</ul>
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+				</div>
+				<div id="column2" class="column">
+					<div class="habblet-container ">		
+						<div class="cbb clearfix notitle ">
+							<div id="article-wrapper">
+							<?php
+								
+								$newsQuery = $mysqli->query("SELECT * FROM cms_news WHERE id = " . $mysqli->real_escape_string($_GET["id"]));
+									
+								$articleData = mysqli_fetch_array($newsQuery);
+									
+								echo '<h2>' . $articleData["title"] . '</h2>
+								<div class="article-meta">Posted: ' . date("F j, Y", $articleData["time"]) . '</div>
+								<p class="summary">' . $articleData["summary"] . '</p>
+								<div class="article-body">' . $articleData["story"] . '</div>';
+									
+									
+								?>
+									  
+								<script type="text/javascript">if (!$(document.body).hasClassName('process-template')) { Rounder.init(); }</script>
+							</div>
+						</div>
+					</div>
+				</div>
+				<script type="text/javascript">
+					HabboView.run();
+				</script>
+			</div>
+		</div>
+	</div>
+
+		<!--[if lt IE 7]>
+			<script type="text/javascript">
+				Pngfix.doPngImageFix();
+			</script>
+		<![endif]-->
+		
+	<?php
+	
+		require("footer-tpl.pop");
+	
+	?>
